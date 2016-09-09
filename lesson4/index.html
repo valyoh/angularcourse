@@ -9,8 +9,9 @@
   <body>
     <h1>My first AngularJS App</h1>
     <div ng-controller="MyFirstController">
-      <input type="text" ng-model="name" />
-      My name is: {{name}}
+      Name: <input type="text" ng-model="name" ng-keyup="displayNumeric()" />
+      <div>Numeric value of name: {{totalValue}}</div>
+      <div>Name: {{name}}</div>
     </div>
   </body>
 </html>
