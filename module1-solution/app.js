@@ -18,6 +18,8 @@
           var dishesCount = arrayOfStrings.length;
           if(dishesCount > 0 && dishesCount < 4) {
             $scope.message = "Enjoy!";
+          } else {
+            $scope.message = "Too much!";
           }
         }
       }
