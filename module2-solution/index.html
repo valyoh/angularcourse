@@ -35,19 +35,20 @@
      <h2>To Buy:</h2>
      <ul ng-repeat="item in toBuyController.items">
        <li>
-         {{ item.quantity }} of {{ item.name }}
-         <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+         Buy {{ item.quantity }} {{ item.name }}
+         <button class="btn btn-default" ng-click="toBuyController.markItemAsBought($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
      </ul>
-     <div class="emptyMessage">Everything is bought!</div>
-    </div>
+     <div class="emptyMessage" ng-if="toBuyController.isEmpty">Everything is bought!</div>
 
-    <!-- Already Bought List -->
-    <div class="col-md-6" ng-controller="AlreadyBoughtShoppingController as alreadyBoughtController">
-     <h2>Already Bought:</h2>
-     <ul>
-       <li>Bought 10 cookies</li>
-     </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
+
+     <!-- Already Bought List -->
+      <div class="col-md-6" ng-controller="AlreadyBoughtShoppingController as alreadyBoughtController">
+        <h2>Already Bought:</h2>
+        <ul ng-repeat="item in alreadyBoughtController.items">
+          <li>Bought {{ item.quantity }} {{ item.name }}</li>
+        </ul>
+        <div class="emptyMessage" ng-if="!toBuyController.notEmpty">Nothing bought yet.</div>
+      </div>
     </div>
   </div>
 </div>
